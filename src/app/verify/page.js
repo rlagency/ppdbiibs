@@ -15,9 +15,16 @@ export default function VerifyPage() {
   const [resendStatus, setResendStatus] = useState('');
   const [timer, setTimer] = useState(10); // 2 menit
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const email = searchParams.get('email');
-  const nisn = searchParams.get('nisn');
+  const [email, setEmail] = useState('');
+  const [nisn, setNisn] = useState('');
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      setEmail(params.get('email') || '');
+      setNisn(params.get('nisn') || '');
+    }
+  }, []);
 
   useEffect(() => {
     if (timer > 0) {

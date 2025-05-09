@@ -1,4 +1,5 @@
 'use client';
+
 import { useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import {
@@ -203,3 +204,5 @@ export default function VerifyPage() {
     </div>
   );
 }
+
+export const dynamic = 'force-dynamic';
